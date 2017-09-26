@@ -6,7 +6,7 @@ public class ConnectToMysql {
     private String driver = "com.mysql.jdbc.Driver";
     private String url;
     private String user = "root";
-    private String password = "855976";
+    private String password = "      ";
     public ConnectToMysql(String database) {
         url= "jdbc:mysql://localhost:3306/"+database;
     }
