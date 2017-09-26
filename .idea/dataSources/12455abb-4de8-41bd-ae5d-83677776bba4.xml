@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="bussiness@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.4">
+    <root id="1"/>
+    <schema id="2" parent="1" name="bussiness">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="information_schema"/>
+    <schema id="4" parent="1" name="medicare"/>
+    <schema id="5" parent="1" name="mysql"/>
+    <schema id="6" parent="1" name="performance_schema"/>
+    <schema id="7" parent="1" name="seckill"/>
+    <schema id="8" parent="1" name="student"/>
+    <schema id="9" parent="1" name="sys"/>
+    <table id="10" parent="2" name="food">
+      <Comment>商品库存表</Comment>
+    </table>
+    <table id="11" parent="2" name="person">
+      <Comment>用户名单</Comment>
+    </table>
+    <column id="12" parent="10" name="name">
+      <Position>1</Position>
+      <Comment>出售者姓名</Comment>
+      <DataType>varchar(120)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="13" parent="10" name="schoolID">
+      <Position>2</Position>
+      <Comment>出售者学号</Comment>
+      <DataType>bigint(120)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="14" parent="10" name="goodName">
+      <Position>3</Position>
+      <Comment>商品名称</Comment>
+      <DataType>varchar(120)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="15" parent="10" name="goodID">
+      <Position>4</Position>
+      <Comment>商品ID</Comment>
+      <DataType>bigint(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="16" parent="10" name="goodNumber">
+      <Position>5</Position>
+      <Comment>商品数量</Comment>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="17" parent="10" name="goodPrice">
+      <Position>6</Position>
+      <Comment>商品价格</Comment>
+      <DataType>float|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="18" parent="10" name="goodDescribe">
+      <Position>7</Position>
+      <Comment>商品描述</Comment>
+      <DataType>varchar(500)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="19" parent="10" name="goodPicture">
+      <Position>8</Position>
+      <Comment>商品图片</Comment>
+      <DataType>mediumblob|0</DataType>
+    </column>
+    <column id="20" parent="10" name="produceTime">
+      <Position>9</Position>
+      <Comment>生产日期</Comment>
+      <DataType>date|0</DataType>
+    </column>
+    <column id="21" parent="10" name="endTime">
+      <Position>10</Position>
+      <Comment>过期日期</Comment>
+      <DataType>date|0</DataType>
+    </column>
+    <key id="22" parent="10" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>goodID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="23" parent="11" name="name">
+      <Position>1</Position>
+      <Comment>姓名</Comment>
+      <DataType>varchar(120)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="24" parent="11" name="account">
+      <Position>2</Position>
+      <Comment>账号</Comment>
+      <DataType>varchar(120)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="25" parent="11" name="password">
+      <Position>3</Position>
+      <Comment>密码</Comment>
+      <DataType>varchar(120)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="26" parent="11" name="schoolID">
+      <Position>4</Position>
+      <Comment>学号</Comment>
+      <DataType>bigint(120)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="27" parent="11" name="vip">
+      <Position>5</Position>
+      <Comment>vip</Comment>
+      <DataType>tinyint(1)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="28" parent="11" name="picture">
+      <Position>6</Position>
+      <Comment>图片</Comment>
+      <DataType>mediumblob|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="29" parent="11" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>account</ColNames>
+      <Primary>1</Primary>
+    </key>
+  </database-model>
+</dataSource>
