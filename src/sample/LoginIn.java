@@ -8,6 +8,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -25,7 +26,7 @@ public class LoginIn implements Initializable,Menus{
     @FXML
     private Button comfirm;
     @FXML
-    private Button clear1;
+    private Button clear;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -33,14 +34,16 @@ public class LoginIn implements Initializable,Menus{
     public void setComfirm(){
         try {
             Connection connection=connect.getConnection();
-            if(account.getText().isEmpty()&&account.getText().length()<20) {
-                String sql="select * from person where account="+account.getText();
+            if(account.getText().isEmpty()==false&&account.getText().length()<20) {
+                String sql="select * from person where account='"+account.getText()+"'";
                 PreparedStatement preparedStatement=connection.prepareStatement(sql);
                 ResultSet resultSet=preparedStatement.executeQuery();
                 resultSet.next();
                 if(password.getText().equals(resultSet.getString(3))){
                     person=new Account(resultSet.getString(1),Integer.valueOf(resultSet.getString(4)),resultSet.getString(2),
-                            resultSet.getString(3),resultSet.getBoolean(5),resultSet.getString(7),resultSet.getBinaryStream(6));
+                            resultSet.getString(3),resultSet.getBoolean(5),resultSet.getString(7),resultSet.getBinaryStream(6),
+                    resultSet.getString(8));
+                    System.out.println("登录成功");
 
                 }
             }
@@ -50,15 +53,19 @@ public class LoginIn implements Initializable,Menus{
             e.printStackTrace();
         }
     }
+    public void setClear(){
+        account.setText("");
+        password.setText("");
+    }
     @FXML
     private Button register;
-    public void setRegister(){
-//        Main.stageController.transStage();
+    public void setRegister() throws IOException {
+        Main.stageController.transStage(Main.Register);
     }
 
     @Override
     public void setQuit() {
-
+        System.exit(0);
     }
 
     @Override

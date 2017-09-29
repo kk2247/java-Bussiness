@@ -12,13 +12,15 @@ public class Account {
 
     private String password;
 
+    private String email;
+
     private boolean vip;
 
     private String phoneNumber;
 
     private InputStream picture;
 
-    public Account(String name, int schoolID, String account, String password, boolean vip, String phoneNumber, InputStream picture) {
+    public Account(String name, int schoolID, String account, String password, boolean vip, String phoneNumber, InputStream picture, String email) {
         this.name = name;
         this.schoolID = schoolID;
         this.account = account;
@@ -26,19 +28,7 @@ public class Account {
         this.vip = vip;
         this.phoneNumber = phoneNumber;
         this.picture = picture;
-    }
-
-    @Override
-    public String toString() {
-        return "Account{" +
-                "name='" + name + '\'' +
-                ", schoolID=" + schoolID +
-                ", account='" + account + '\'' +
-                ", password='" + password + '\'' +
-                ", vip=" + vip +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                ", picture=" + picture +
-                '}';
+        this.email = email;
     }
 
     public String getName() {
@@ -71,6 +61,14 @@ public class Account {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public boolean isVip() {

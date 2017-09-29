@@ -23,8 +23,24 @@ public class UpLoad {
                 +food.getName()+"',"+food.getNumber()+","+food.getPrice()+",'"+food.getDescribe()+"','"+food.getProduceDay()+"','"+food.getDeadLine()+"',? )";
         PreparedStatement preparedStatement=(PreparedStatement)connection.prepareStatement(sql);
         preparedStatement.setBinaryStream(1,food.getFoodPicture(),food.getFoodPicture().available());
-        System.out.println(sql);
         preparedStatement.executeUpdate();
+        return true;
+    }
+    public boolean upLoadAccount(Account account){
+        String sql="insert person (name,schoolID,account,password,vip,picture,phoneNumber,email)values('"+account.getName()+"',"+account.getSchoolID()+
+                ",'"+account.getAccount()+"','"+account.getPassword()+"',"+account.isVip()+",?,"+account.getPhoneNumber()+",'"+
+                account.getEmail()+"')";
+        System.out.println(sql);
+        try {
+            PreparedStatement preparedStatement=(PreparedStatement)connection.prepareStatement(sql);
+            preparedStatement.setBinaryStream(1,account.getPicture(),account.getPicture().available());
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        System.out.println("succeed!!!");
         return true;
     }
 }

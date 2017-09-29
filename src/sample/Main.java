@@ -16,11 +16,14 @@ public class Main extends Application {
     public static String AddFood="addFood";
     public static String AddFoodRes="AddFood.fxml";
 
+    public static String Register="register";
+    public static String RegisterRes="Register.fxml";
 
     @Override
     public void start(Stage primaryStage) throws Exception{
         stageController.loadStage(LoginIn,LoginInRes);
         stageController.loadStage(AddFood,AddFoodRes);
+        stageController.loadStage(Register,RegisterRes);
         stageController.transStage(LoginIn);
     }
 

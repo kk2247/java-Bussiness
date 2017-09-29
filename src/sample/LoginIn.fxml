@@ -65,7 +65,7 @@
             </Menu>
          </menus>
       </MenuBar>
-      <ImageView fx:id="image" fitHeight="106.0" fitWidth="116.0" layoutX="169.0" layoutY="57.0"  pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="image" fitHeight="106.0" fitWidth="116.0" layoutX="169.0" layoutY="57.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../../图片/我妻由乃/97e31b1703fe5a88b3f15f9784e6d121.jpg" />
          </image>
@@ -80,15 +80,15 @@
             <RowConstraints maxHeight="60.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <TextField GridPane.columnIndex="1" />
-            <PasswordField GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="account" GridPane.columnIndex="1" />
+            <PasswordField fx:id="password" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <Label text="账号" />
             <Label text="密码" GridPane.rowIndex="1" />
          </children>
       </GridPane>
-      <Button layoutX="61.0" layoutY="448.0" mnemonicParsing="false" text="登录" />
-      <Button layoutX="343.0" layoutY="448.0" mnemonicParsing="false" text="清空" />
-      <Button layoutX="202.0" layoutY="448.0" mnemonicParsing="false" text="注册" />
+      <Button fx:id="comfirm" layoutX="61.0" layoutY="448.0" mnemonicParsing="false" onAction="#setComfirm" text="登录" />
+      <Button fx:id="clear" layoutX="343.0" layoutY="448.0" mnemonicParsing="false" onAction="#setClear" text="清空" />
+      <Button fx:id="register" layoutX="202.0" layoutY="448.0" mnemonicParsing="false" onAction="#setRegister" text="注册" />
       <SplitPane layoutX="454.0" layoutY="30.0" prefHeight="699.0" prefWidth="554.0">
          <items>
             <AnchorPane prefHeight="200.0" prefWidth="200.0">
