@@ -20,7 +20,7 @@ public class Stage2Controller implements Initializable {
 
     }
     public void setImage(){
-        image.setImage(new Image(Main.stageController.readDatas(Main.stage1Name,0)));
+//        image.setImage(new Image(Main.stageController.readDatas(Main.stage1Name,0)));
     }
 
 }

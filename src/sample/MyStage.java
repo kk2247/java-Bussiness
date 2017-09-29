@@ -7,16 +7,7 @@ import java.util.ArrayList;
 public class MyStage {
     private Stage stage;
     private String name;
-    private ArrayList<String> datas=new ArrayList<String>();
-
-    public ArrayList<String> getDatas() {
-        return datas;
-    }
-
-    public void setDatas(ArrayList<String> datas) {
-        this.datas = datas;
-    }
-
+    private Account account;
     public MyStage(Stage stage, String name) {
         this.stage = stage;
         this.name = name;
@@ -36,5 +27,13 @@ public class MyStage {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Account getAccount() {
+        return account;
+    }
+
+    public void setAccount(Account account) {
+        this.account = account;
     }
 }

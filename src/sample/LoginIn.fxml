@@ -17,7 +17,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="729.0" prefWidth="1008.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.AddFood">
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="729.0" prefWidth="1008.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.LoginIn">
    <children>
       <MenuBar layoutY="-2.0" prefHeight="32.0" prefWidth="1008.0">
          <menus>
@@ -65,7 +65,7 @@
             </Menu>
          </menus>
       </MenuBar>
-      <ImageView fx:id="image" fitHeight="106.0" fitWidth="116.0" layoutX="169.0" layoutY="57.0" onMouseClicked="#setImage" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="image" fitHeight="106.0" fitWidth="116.0" layoutX="169.0" layoutY="57.0"  pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../../图片/我妻由乃/97e31b1703fe5a88b3f15f9784e6d121.jpg" />
          </image>
@@ -86,8 +86,8 @@
             <Label text="密码" GridPane.rowIndex="1" />
          </children>
       </GridPane>
-      <Button fx:id="submit" layoutX="61.0" layoutY="448.0" mnemonicParsing="false" onAction="#setSubmit" text="登录" />
-      <Button fx:id="clear" layoutX="343.0" layoutY="448.0" mnemonicParsing="false" onAction="#setClear" text="清空" />
+      <Button layoutX="61.0" layoutY="448.0" mnemonicParsing="false" text="登录" />
+      <Button layoutX="343.0" layoutY="448.0" mnemonicParsing="false" text="清空" />
       <Button layoutX="202.0" layoutY="448.0" mnemonicParsing="false" text="注册" />
       <SplitPane layoutX="454.0" layoutY="30.0" prefHeight="699.0" prefWidth="554.0">
          <items>
@@ -99,7 +99,7 @@
                            <children>
                               <VBox layoutX="31.0" layoutY="15.0" prefHeight="200.0" prefWidth="100.0">
                                  <children>
-                                    <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                                    <ImageView fx:id="imageViews" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
                                     <Label text="价格：" />
                                     <Label text="数量：" />
                                     <Label text="出售者学号：" />

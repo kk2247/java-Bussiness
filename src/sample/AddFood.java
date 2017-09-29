@@ -75,7 +75,7 @@ public class AddFood extends Window implements Initializable,Menus{
             String fileName = "file:"+picturePath;
             Image newImage=new Image(fileName);
             image.setImage(newImage);
-            Main.stageController.storeDatas(Main.stage1Name,fileName);
+//            Main.stageController.storeDatas(Main.stage1Name,fileName);
         }
     }
     @FXML

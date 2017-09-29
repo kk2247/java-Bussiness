@@ -55,7 +55,7 @@ public class StageController implements Initializable {
         while(iterator.hasNext()){
             MyStage myStage=iterator.next();
             if (myStage.getName().equals(stageName)){
-                myStage.getDatas().add(data);
+//                myStage.getDatas().add(data);
             }
         }
     }
@@ -64,7 +64,7 @@ public class StageController implements Initializable {
         while(iterator.hasNext()){
             MyStage myStage=iterator.next();
             if (myStage.getName().equals(stageName)){
-                return myStage.getDatas().get(count);
+//                return myStage.getDatas().get(count);
             }
         }
         return null;

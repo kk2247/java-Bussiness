@@ -11,6 +11,7 @@ public class Food extends Goods{
     private String describe;
     private String ID;
     private InputStream foodPicture;
+    private int times=0;
 
 
     public Food(String name, float price) {
@@ -29,6 +30,10 @@ public class Food extends Goods{
                 ", ID='" + ID + '\'' +
                 ", foodPicture=" + foodPicture +
                 '}';
+    }
+
+    public void setTimes(int increase) {
+       times+=increase;
     }
 
     public String getOwnerName() {
