@@ -109,5 +109,6 @@ public class Food extends Goods{
         this.deadLine = deadLine;
         this.describe = describe;
         this.foodPicture = foodPicture;
+        times=0;
     }
 }

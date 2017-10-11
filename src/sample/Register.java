@@ -2,6 +2,7 @@ package sample;
 
 import Dao.ConnectToMysql;
 import Dao.UpLoad;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -16,15 +17,10 @@ import javafx.stage.Window;
 import test.SentNewEmail;
 
 import javax.mail.MessagingException;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
+import java.io.*;
 import java.net.URL;
 import java.sql.SQLException;
-import java.util.List;
-import java.util.Random;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class Register extends Window implements Initializable {
     private Stage stage=new Stage();
@@ -75,9 +71,40 @@ public class Register extends Window implements Initializable {
         for(int j=0;j<6;j++){
             number=number+random.nextInt(10);
         }
+        buildNumber.setDisable(true);
+        Timer timer=new Timer();
+        timer.schedule(new TimerTask() {
+            int i=60;
+            public void run() {
+                Platform.runLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        String text = "距下次可发送时间" + i + "秒";
+                        i--;
+                        buildNumber.setText(text);
+                        if(i<0)
+                        {
+                            timer.cancel();
+                            buildNumber.setDisable(false);
+                            buildNumber.setText("发送验证码到邮箱");
+                        }
+                    }
+                });
+            }
+        }, 0,1000);
+//        timer.scheduleAtFixedRate(new TimerTask() {
+//            int i=60;
+//            public void run() {
+//                String text="距下次可发送时间"+i+"秒";
+//                buildNumber.setText(text);
+//                if(i<0){
+//                    timer.cancel();
+//                }
+//            }
+//        }, 0, 1000);
         sentNewEmail.sent(email.getText(),account.getText(),number);
     }
-    public void setComfirm() throws FileNotFoundException {
+    public void setComfirm() throws IOException {
         if(account.getText().isEmpty()==false&&picturePath!=""&&name.getText().isEmpty()==false&&email.getText().isEmpty()==false&&schoolID.getText().isEmpty()==false
                 &&phoneNumber.getText().isEmpty()==false&&authCode.getText().isEmpty()==false&&password.getText().isEmpty()==false&&password2.getText().isEmpty()==false){
             if(password2.getText().equals(password.getText())){
@@ -94,6 +121,7 @@ public class Register extends Window implements Initializable {
                 }
             }
         }
+        Main.stageController.transStage(Main.Register,Main.LoginIn);
     }
     public void setPicture(){
         FileChooser fileChooser=new FileChooser();
@@ -114,5 +142,8 @@ public class Register extends Window implements Initializable {
             Image newImage=new Image(fileName);
             picture.setImage(newImage);
         }
+    }
+    public void setBack(){
+        Main.stageController.closeStage(Main.Register);
     }
 }

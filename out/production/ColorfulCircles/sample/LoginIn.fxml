@@ -26,23 +26,23 @@
                   <Menu mnemonicParsing="false" text="商品">
                      <items>
                         <MenuItem mnemonicParsing="false" text="查找商品" />
-                        <MenuItem mnemonicParsing="false" text="商品发布" />
-                        <MenuItem mnemonicParsing="false" text="查看自己的商品" />
+                        <MenuItem disable="true" mnemonicParsing="false" text="商品发布" />
+                        <MenuItem disable="true" mnemonicParsing="false" text="查看自己的商品" />
                      </items>
                   </Menu>
                   <Menu mnemonicParsing="false" text="二手商品">
                      <items>
                         <MenuItem mnemonicParsing="false" text="查找商品" />
-                        <MenuItem mnemonicParsing="false" text="商品发布" />
-                        <MenuItem mnemonicParsing="false" text="查看自己的商品" />
+                        <MenuItem disable="true" mnemonicParsing="false" text="商品发布" />
+                        <MenuItem disable="true" mnemonicParsing="false" text="查看自己的商品" />
                      </items>
                   </Menu>
                </items>
             </Menu>
             <Menu mnemonicParsing="false" text="用户信息">
                <items>
-                  <MenuItem mnemonicParsing="false" text="填写用户信息" />
-                  <MenuItem mnemonicParsing="false" text="查看用户信息" />
+                  <MenuItem disable="true" mnemonicParsing="false" text="填写用户信息" />
+                  <MenuItem disable="true" mnemonicParsing="false" text="查看用户信息" />
                </items>
             </Menu>
             <Menu mnemonicParsing="false" text="帮助">
@@ -55,7 +55,7 @@
                <items>
                   <MenuItem mnemonicParsing="false" text="登录" />
                   <MenuItem mnemonicParsing="false" text="vip" />
-                  <MenuItem mnemonicParsing="false" text="退出登录" />
+                  <MenuItem disable="true" mnemonicParsing="false" text="退出登录" />
                </items>
             </Menu>
             <Menu mnemonicParsing="false" text="系统操作">
@@ -95,51 +95,51 @@
                <children>
                   <ScrollPane prefHeight="697.0" prefWidth="552.0">
                     <content>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1759.0" prefWidth="553.0">
+                      <AnchorPane fx:id="showPane" minHeight="0.0" minWidth="0.0" prefHeight="1759.0" prefWidth="553.0">
                            <children>
-                              <VBox layoutX="31.0" layoutY="15.0" prefHeight="200.0" prefWidth="100.0">
+                              <VBox fx:id="showBoard1" layoutX="31.0" layoutY="15.0" prefHeight="200.0" prefWidth="100.0">
                                  <children>
-                                    <ImageView fx:id="imageViews" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
-                                    <Label text="价格：" />
-                                    <Label text="数量：" />
-                                    <Label text="出售者学号：" />
-                                    <Label text="描述：" />
+                                    <ImageView fx:id="goodPicture1" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                                    <Label fx:id="price1" text="价格：" />
+                                    <Label fx:id="number1" text="数量：" />
+                                    <Label fx:id="schoolID1" text="出售者学号：" />
+                                    <Label fx:id="describe1" text="描述：" />
                                  </children>
                               </VBox>
-                              <VBox layoutX="292.0" layoutY="15.0" prefHeight="200.0" prefWidth="100.0">
+                              <VBox fx:id="showBoard2" layoutX="292.0" layoutY="15.0" prefHeight="200.0" prefWidth="100.0">
                                  <children>
-                                    <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
-                                    <Label text="价格：" />
-                                    <Label text="数量：" />
-                                    <Label text="出售者学号：" />
-                                    <Label text="描述：" />
+                                    <ImageView fx:id="goodPicture2" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                                    <Label fx:id="price2" text="价格：" />
+                                    <Label fx:id="number2" text="数量：" />
+                                    <Label fx:id="schoolID2" text="出售者学号：" />
+                                    <Label fx:id="describe2" text="描述：" />
                                  </children>
                               </VBox>
-                              <VBox layoutX="31.0" layoutY="265.0" prefHeight="200.0" prefWidth="100.0">
+                              <VBox fx:id="showBoard3" layoutX="31.0" layoutY="265.0" prefHeight="200.0" prefWidth="100.0">
                                  <children>
-                                    <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
-                                    <Label text="价格：" />
-                                    <Label text="数量：" />
-                                    <Label text="出售者学号：" />
-                                    <Label text="描述：" />
+                                    <ImageView fx:id="goodPicture3" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                                    <Label fx:id="price3" text="价格：" />
+                                    <Label fx:id="number3" text="数量：" />
+                                    <Label fx:id="schoolID3" text="出售者学号：" />
+                                    <Label fx:id="describe3" text="描述：" />
                                  </children>
                               </VBox>
-                              <VBox layoutX="292.0" layoutY="265.0" prefHeight="200.0" prefWidth="100.0">
+                              <VBox fx:id="showBoard4" layoutX="292.0" layoutY="265.0" prefHeight="200.0" prefWidth="100.0">
                                  <children>
-                                    <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
-                                    <Label text="价格：" />
-                                    <Label text="数量：" />
-                                    <Label text="出售者学号：" />
-                                    <Label text="描述：" />
+                                    <ImageView fx:id="goodPicture4" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                                    <Label fx:id="price4" text="价格：" />
+                                    <Label fx:id="number4" text="数量：" />
+                                    <Label fx:id="schoolID4" text="出售者学号：" />
+                                    <Label fx:id="describe4" text="描述：" />
                                  </children>
                               </VBox>
-                              <VBox layoutX="31.0" layoutY="515.0" prefHeight="200.0" prefWidth="100.0">
+                              <VBox fx:id="showBoard5" layoutX="31.0" layoutY="515.0" prefHeight="200.0" prefWidth="100.0">
                                  <children>
-                                    <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
-                                    <Label text="价格：" />
-                                    <Label text="数量：" />
-                                    <Label text="出售者学号：" />
-                                    <Label text="描述：" />
+                                    <ImageView fx:id="goodPicture5" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                                    <Label fx:id="price5" text="价格：" />
+                                    <Label fx:id="number5" text="数量：" />
+                                    <Label fx:id="schoolID5" text="出售者学号：" />
+                                    <Label fx:id="describe5" text="描述：" />
                                  </children>
                               </VBox>
                               <VBox layoutX="292.0" layoutY="515.0" prefHeight="200.0" prefWidth="100.0">

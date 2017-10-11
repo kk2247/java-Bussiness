@@ -53,7 +53,7 @@
           </Menu>
             <Menu mnemonicParsing="false" text="登录退出">
               <items>
-                <MenuItem mnemonicParsing="false" text="登录" />
+                <MenuItem disable="true" mnemonicParsing="false" text="登录" />
                   <MenuItem mnemonicParsing="false" text="vip" />
                   <MenuItem mnemonicParsing="false" text="退出登录" />
               </items>
@@ -67,11 +67,7 @@
       </MenuBar>
       <SplitPane layoutY="109.0" prefHeight="620.0" prefWidth="168.0">
          <items>
-            <TreeTableView prefHeight="200.0" prefWidth="200.0">
-              <columns>
-                <TreeTableColumn prefWidth="166.0" text="商品种类" />
-              </columns>
-            </TreeTableView>
+            <TreeView fx:id="view" prefHeight="200.0" prefWidth="200.0" />
          </items>
       </SplitPane>
       <ImageView fx:id="image" fitHeight="106.0" fitWidth="116.0" layoutX="484.0" layoutY="124.0" onMouseClicked="#setImage" pickOnBounds="true" preserveRatio="true">
@@ -136,5 +132,9 @@
          </items>
       </SplitPane>
       <TreeView layoutY="30.0" prefHeight="78.0" prefWidth="1008.0" />
+      <ImageView fx:id="userPicture" fitHeight="60.0" fitWidth="67.0" layoutX="34.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true" />
+      <Label fx:id="userName" layoutX="152.0" layoutY="39.0" text="姓名：" />
+      <Label fx:id="userSchoolID" layoutX="152.0" layoutY="69.0" text="学号：" />
+      <Button fx:id="button" layoutX="175.0" layoutY="401.0" mnemonicParsing="false" onAction="#setTree" text="Button" />
    </children>
 </AnchorPane>

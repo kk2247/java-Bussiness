@@ -31,6 +31,9 @@ public class Account {
         this.email = email;
     }
 
+    public Account() {
+    }
+
     public String getName() {
         return name;
     }

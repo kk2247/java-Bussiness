@@ -52,7 +52,7 @@
          </children>
       </GridPane>
       <Button fx:id="comfirm" layoutX="27.0" layoutY="347.0" mnemonicParsing="false" onAction="#setComfirm" text="确认" />
-      <Button fx:id="back" layoutX="505.0" layoutY="347.0" mnemonicParsing="false" text="返回" />
+      <Button fx:id="back" layoutX="505.0" layoutY="347.0" mnemonicParsing="false" onAction="#setBack" text="返回" />
       <CheckBox fx:id="vip" layoutX="300.0" layoutY="314.0" mnemonicParsing="false" text="是否成为会员" />
       <Button fx:id="buildNumber" layoutX="106.0" layoutY="309.0" mnemonicParsing="false" onAction="#sentNumber" text="发送验证码到邮箱" />
    </children>

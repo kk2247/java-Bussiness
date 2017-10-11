@@ -1,24 +1,30 @@
 package sample;
 
 import Dao.ConnectToMysql;
+import Dao.DownLoad;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 
+import javax.swing.*;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.ResourceBundle;
 
 public class LoginIn implements Initializable,Menus{
-    public Account person;
     private ConnectToMysql connect=new ConnectToMysql("bussiness");
+    DownLoad downLoad=new DownLoad(connect.getConnection());
     @FXML
     private TextField account;
     @FXML
@@ -27,30 +33,22 @@ public class LoginIn implements Initializable,Menus{
     private Button comfirm;
     @FXML
     private Button clear;
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
+
+    public LoginIn() throws SQLException, ClassNotFoundException {
 
     }
-    public void setComfirm(){
-        try {
-            Connection connection=connect.getConnection();
-            if(account.getText().isEmpty()==false&&account.getText().length()<20) {
-                String sql="select * from person where account='"+account.getText()+"'";
-                PreparedStatement preparedStatement=connection.prepareStatement(sql);
-                ResultSet resultSet=preparedStatement.executeQuery();
-                resultSet.next();
-                if(password.getText().equals(resultSet.getString(3))){
-                    person=new Account(resultSet.getString(1),Integer.valueOf(resultSet.getString(4)),resultSet.getString(2),
-                            resultSet.getString(3),resultSet.getBoolean(5),resultSet.getString(7),resultSet.getBinaryStream(6),
-                    resultSet.getString(8));
-                    System.out.println("登录成功");
 
-                }
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        init();
+    }
+    public void setComfirm() throws IOException {
+        if(account.getText().isEmpty()==false&&account.getText().length()<20) {
+            Main.person=downLoad.downloadUser(account.getText(), password.getText());
+            if(Main.person!=null){
+                Main.stageController.loadStage(Main.AddFood,Main.AddFoodRes);
+                Main.stageController.transStage(Main.LoginIn,Main.AddFood);
             }
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
-            e.printStackTrace();
         }
     }
     public void setClear(){
@@ -60,6 +58,7 @@ public class LoginIn implements Initializable,Menus{
     @FXML
     private Button register;
     public void setRegister() throws IOException {
+        Main.stageController.loadStage(Main.Register,Main.RegisterRes);
         Main.stageController.transStage(Main.Register);
     }
 
@@ -132,4 +131,125 @@ public class LoginIn implements Initializable,Menus{
     public void setSearchOldGoods() {
 
     }
+    public void init(){
+        ArrayList<Food> foods=downLoad.downLoadAllOfFoodByTimes("food");
+        Iterator<Food> iter=foods.iterator();
+        System.out.println(foods.size());
+        switch (foods.size()){
+
+            case 1:{
+                show1(iter.next());
+                break;
+            }
+            case 5:{
+                show1(iter.next());
+                show2(iter.next());
+                show3(iter.next());
+                show4(iter.next());
+                show5(iter.next());
+                break;
+            }
+        }
+    }
+
+    @FXML
+    private VBox showBoard1;
+    @FXML
+    private ImageView goodPicture1;
+    @FXML
+    private Label price1;
+    @FXML
+    private Label number1;
+    @FXML
+    private Label schoolID1;
+    @FXML
+    private Label describe1;
+    private void show1(Food food){
+        goodPicture1.setImage(new Image(food.getFoodPicture()));
+        price1.setText("价格"+String.valueOf(food.getPrice()));
+        number1.setText("数量"+String.valueOf(food.getNumber()));
+        schoolID1.setText("出售者学号"+String.valueOf(food.getOwnerSchoolID()));
+        describe1.setText("描述"+food.getDescribe());
+    }
+
+    @FXML
+    private VBox showBoard2;
+    @FXML
+    private ImageView goodPicture2;
+    @FXML
+    private Label price2;
+    @FXML
+    private Label number2;
+    @FXML
+    private Label schoolID2;
+    @FXML
+    private Label describe2;
+    private void show2(Food food){
+        goodPicture2.setImage(new Image(food.getFoodPicture()));
+        price2.setText("价格:"+String.valueOf(food.getPrice()));
+        number2.setText("数量:"+String.valueOf(food.getNumber()));
+        schoolID2.setText("出售者学号:"+String.valueOf(food.getOwnerSchoolID()));
+        describe2.setText("描述:"+food.getDescribe());
+    }
+
+    @FXML
+    private VBox showBoard3;
+    @FXML
+    private ImageView goodPicture3;
+    @FXML
+    private Label price3;
+    @FXML
+    private Label number3;
+    @FXML
+    private Label schoolID3;
+    @FXML
+    private Label describe3;
+    private void show3(Food food){
+        goodPicture3.setImage(new Image(food.getFoodPicture()));
+        price3.setText("价格:"+String.valueOf(food.getPrice()));
+        number3.setText("数量:"+String.valueOf(food.getNumber()));
+        schoolID3.setText("出售者学号:"+String.valueOf(food.getOwnerSchoolID()));
+        describe3.setText("描述:"+food.getDescribe());
+    }
+
+    @FXML
+    private VBox showBoard4;
+    @FXML
+    private ImageView goodPicture4;
+    @FXML
+    private Label price4;
+    @FXML
+    private Label number4;
+    @FXML
+    private Label schoolID4;
+    @FXML
+    private Label describe4;
+    private void show4(Food food){
+        goodPicture4.setImage(new Image(food.getFoodPicture()));
+        price4.setText("价格:"+String.valueOf(food.getPrice()));
+        number4.setText("数量:"+String.valueOf(food.getNumber()));
+        schoolID4.setText("出售者学号:"+String.valueOf(food.getOwnerSchoolID()));
+        describe4.setText("描述:"+food.getDescribe());
+    }
+
+    @FXML
+    private VBox showBoard5;
+    @FXML
+    private ImageView goodPicture5;
+    @FXML
+    private Label price5;
+    @FXML
+    private Label number5;
+    @FXML
+    private Label schoolID5;
+    @FXML
+    private Label describe5;
+    private void show5(Food food){
+        goodPicture5.setImage(new Image(food.getFoodPicture()));
+        price5.setText("价格:"+String.valueOf(food.getPrice()));
+        number5.setText("数量:"+String.valueOf(food.getNumber()));
+        schoolID5.setText("出售者学号:"+String.valueOf(food.getOwnerSchoolID()));
+        describe5.setText("描述:"+food.getDescribe());
+    }
+
 }

@@ -3,17 +3,17 @@ package sample;
 import Dao.ConnectToMysql;
 import Dao.DownLoad;
 import Dao.UpLoad;
+import javafx.beans.property.ReadOnlyStringWrapper;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.Window;
+import javafx.util.Callback;
 import jdk.internal.util.xml.impl.Input;
 
 import java.io.File;
@@ -26,12 +26,22 @@ import java.util.*;
 
 public class AddFood extends Window implements Initializable,Menus{
     private Stage stage=new Stage();
-    private Account account;
     private Food food;
     private InputStream inputStream;
     private String picturePath="";
     private ConnectToMysql connectToMysql=new ConnectToMysql("bussiness");
     private UpLoad upLoadFood=new UpLoad(connectToMysql.getConnection());
+    @FXML
+    private ImageView userPicture;
+    @FXML
+    private Label userName;
+    @FXML
+    private Label userSchoolID;
+    private void setTitle(){
+        userPicture.setImage(new Image(Main.person.getPicture()));
+        userName.setText("姓名："+Main.person.getName());
+        userSchoolID.setText("学号："+Main.person.getSchoolID());
+    }
     @FXML
     private AnchorPane anchorPane;
 
@@ -56,6 +66,13 @@ public class AddFood extends Window implements Initializable,Menus{
     public void initialize(URL location, ResourceBundle resources) {
         anchorPane.setStyle("-fx-background-color: rgba(100,150,255,0.5);");
         image.setImage(new Image("https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1505636368&di=7cd271d197f5406838853b1f19eaa180&src=http://img.dongman.fm/public/ae58bff4102b0cd7cb3cb69070e0c38f.jpg"));
+        if(Main.person==null){
+            System.out.println(1);
+        }else{
+            setTitle();
+        }
+        //setTree();
+
     }
     public void setImage() throws IOException {
         FileChooser fileChooser=new FileChooser();
@@ -131,7 +148,7 @@ public class AddFood extends Window implements Initializable,Menus{
             inputStream.close();
             return false;
         }else{
-            food=new Food(foodName.getText(),Float.valueOf(foodPrice.getText()),account.getName(),account.getSchoolID(),Integer.valueOf(foodNumber.getText()),produceDay,deadline,foodDescribe.getText(),food.getFoodPicture());
+            food=new Food(foodName.getText(),Float.valueOf(foodPrice.getText()),Main.person.getName(),Main.person.getSchoolID(),Integer.valueOf(foodNumber.getText()),produceDay,deadline,foodDescribe.getText(),inputStream);
             System.out.println(food.toString()+food.getName()+food.getPrice());
             upLoadFood.uploadFood(food);
             inputStream.close();
@@ -210,6 +227,25 @@ public class AddFood extends Window implements Initializable,Menus{
 
     @Override
     public void setSearchOldGoods() {
+
+    }
+    @FXML
+    private TreeTableColumn type;
+    @FXML
+    private TreeView<String> view;
+    @FXML
+    private Button button;
+    public void setTree(){
+//        TreeTableColumn<String,String> treeTableColumn=new TreeTableColumn<>("商品");
+//        treeTableColumn.setCellValueFactory((TreeTableColumn.CellDataFeatures<String, String> p) ->
+//                new ReadOnlyStringWrapper(p.getValue().getValue()));
+        TreeItem<String> rootItem = new TreeItem<> ("Inbox");
+        rootItem.setExpanded(true);
+        for (int i = 1; i < 6; i++) {
+            TreeItem<String> item = new TreeItem<> ("Message" + i);
+            rootItem.getChildren().add(item);
+        }
+        view= new TreeView<> (rootItem);
 
     }
 }

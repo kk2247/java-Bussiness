@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="729.0" prefWidth="1008.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Search">
+   <children>
+      <MenuBar layoutY="-2.0" prefHeight="32.0" prefWidth="1008.0">
+         <menus>
+            <Menu mnemonicParsing="false" text="商品交易">
+               <items>
+                  <Menu mnemonicParsing="false" text="商品">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="查找商品" />
+                        <MenuItem disable="true" mnemonicParsing="false" text="商品发布" />
+                        <MenuItem disable="true" mnemonicParsing="false" text="查看自己的商品" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="二手商品">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="查找商品" />
+                        <MenuItem disable="true" mnemonicParsing="false" text="商品发布" />
+                        <MenuItem disable="true" mnemonicParsing="false" text="查看自己的商品" />
+                     </items>
+                  </Menu>
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="用户信息">
+               <items>
+                  <MenuItem disable="true" mnemonicParsing="false" text="填写用户信息" />
+                  <MenuItem disable="true" mnemonicParsing="false" text="查看用户信息" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="帮助">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="关于" />
+                  <MenuItem mnemonicParsing="false" text="关于普通该用户，VIP" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="登录退出">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="登录" />
+                  <MenuItem mnemonicParsing="false" text="vip" />
+                  <MenuItem disable="true" mnemonicParsing="false" text="退出登录" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="系统操作">
+               <items>
+                  <MenuItem fx:id="quit" mnemonicParsing="false" onAction="#setQuit" text="退出" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+      <SplitPane layoutY="30.0" prefHeight="208.0" prefWidth="391.0">
+         <items>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" />
+         </items>
+      </SplitPane>
+      <SplitPane layoutY="238.0" prefHeight="491.0" prefWidth="391.0">
+         <items>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" />
+         </items>
+      </SplitPane>
+      <SplitPane layoutX="391.0" layoutY="30.0" prefHeight="699.0" prefWidth="618.0">
+         <items>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" />
+         </items>
+      </SplitPane>
+   </children>
+</AnchorPane>

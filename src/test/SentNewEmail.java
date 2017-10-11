@@ -57,7 +57,7 @@ public class SentNewEmail {
             mimeMessage.setSentDate(new Date());
             mimeMessage.setRecipient(MimeMessage.RecipientType.TO, new InternetAddress(receiveMail, user+"用户", "UTF-8"));
             mimeMessage.setSubject("注册信息验证","UTF-8");
-            String content="  "+user+"用户，您好"+"\n"+
+            String content="这个，真的不是垃圾邮件！！！"+user+"用户，您好"+"\n"+
                     "您注册的账号的验证码为："+number;
             mimeMessage.setContent(content,"text/html;charset=UTF-8");
             mimeMessage.saveChanges();

@@ -8,6 +8,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 public class Main extends Application {
+    public static Account person=new Account();
     public static StageController stageController=new StageController();
 
     public static String LoginIn="loginIn";
@@ -22,10 +23,16 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         stageController.loadStage(LoginIn,LoginInRes);
-        stageController.loadStage(AddFood,AddFoodRes);
-        stageController.loadStage(Register,RegisterRes);
+        //stageController.loadStage(AddFood,AddFoodRes);
+        //stageController.loadStage(Register,RegisterRes);
         stageController.transStage(LoginIn);
     }
+//    public void setAccount(Account account){
+//        person=account;
+//    }
+//    public Account getAccount(){
+//        return person;
+//    }
 
 
     public static void main(String[] args) {
